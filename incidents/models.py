@@ -5,6 +5,7 @@ from django.db import models
 class Incident(models.Model):
     subject = models.CharField(max_length=30)
     description = models.CharField(max_length=200)
+    sender =  models.ForeignKey('user.User',on_delete=models.CASCADE)
 
     class Severity(models.TextChoices):
         LOW = 'LOW', 'Low'

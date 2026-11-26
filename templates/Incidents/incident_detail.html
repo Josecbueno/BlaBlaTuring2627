@@ -1,7 +1,11 @@
-<h1>{{ object.id }} is {{ object.subject }}</h1>
-<h2>Description: {{ object.description }} </h2>
-<h2>Severity: {{ object.severity }}</h2>
-<h2>Status: {{ object.status }}</h2>
-<h2>Creation date: {{ object.creation_date }}</h2>
-<h2>Finish date: {{ object.finish_date }}</h2>
-<a href="{% url 'incident-list' %}">Volver a la lista</a>
+{% extends "base.html" %}
+{% block content%}
+<h1 class="title"> The {{ object.id }} belong {{ object.subject }}</h1>
+<h2 class="title is-4">Description: {{ object.description }} </h2>
+<h2 class="title is-4">Severity: {{ object.severity }}</h2>
+<h2 class="title is-4">Status: {{ object.status }}</h2>
+<h2 class="title is-4">Creation date: {{ object.creation_date }}</h2>
+<h2 class="title is-4">Finish date: {{ object.finish_date }}</h2>
+<h2 class="title is-4">Sender: {{  object.sender }}</h2>
+<a href="{% url 'incident-list' %}"><button class="button is-primary is-large">Volver atras</button></a>
+{% endblock %}

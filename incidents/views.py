@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Incident
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 # Create your views here.
 
 def index(request):
@@ -11,4 +12,3 @@ class IncidentsListView(ListView):
 
 class IncidentsDetailView(DetailView):
     model = Incident
-    #template_name = "Incidents/incident_detail.html"

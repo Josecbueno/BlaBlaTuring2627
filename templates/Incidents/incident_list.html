@@ -1,11 +1,22 @@
 {% extends "base.html" %}
 {% block content%}
 <h1 class="title">Incidents</h1>
-<ul>
-{% for incident in object_list %}
-    <li><a href="{% url 'incident-detail' incident.id %}">{{ incident.id }}</a> - {{ incident.subject }}</li>
-{% empty %}
-    <li>No incidents yet. Thanks :)</li>
-{% endfor %}
-</ul>
+<table class="table">
+    <thead>
+        <th>ID</th>
+        <th>Subject</th>
+        <th>Sender</th>
+    </thead>
+    <tbody>
+        {% for incident in object_list %}
+        <tr>
+            <td> <a href="{% url 'incident-detail' incident.id %}">{{ incident.id }}</a> </td>
+            <td>{{ incident.subject }}</td>
+            <td>{{ incident.sender }}</td>
+        </tr>
+        {% empty %}
+            <td>No incidents yet. Thanks :)</td>
+            {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
